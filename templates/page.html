@@ -1,8 +1,5 @@
----
-layout: default
----
-
 <!-- Page Header -->
+{% load static %}
 {% if page.background %}
 <header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
 {% else %}
