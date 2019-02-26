@@ -1,4 +1,13 @@
 # Byte-compiled / optimized / DLL files
+myenv
+**/migrations
+
+_site
+.sass-cache
+node_modules
+Gemfile.lock
+*.gem
+.idea/
 __pycache__/
 *.py[cod]
 *$py.class
