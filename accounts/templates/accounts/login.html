@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+    <div class="container">
+        <h2 style="color: dodgerblue; margin-left: 41%; margin-top: 10%">Login</h2>
+
+        <div class="form-group">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <div class="alert alert-success">{{ message }}</div>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+
+        <div class="col-md-7" style="margin-left: 30%;">
+            <form method="post" action="" class="form-horizontal">
+             {% csrf_token %}
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Username</label>
+                    <div class="col-md-5">
+                        <input type="text" name="user" class="form-control" placeholder="Enter username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Password</label>
+                    <div class="col-md-5">
+                        <input type="password" name="pas" class="form-control" placeholder="password">
+                    </div>
+                </div>
+                <div class="g-recaptcha" data-sitekey="6LcFNIMUAAAAANPkG0BnQiJ1fx8CXMWzMZsqf_kW" style="margin-left: 10%"></div>
+                <div class="form-group">
+                <div class="col-md-offset-3">
+                    <button type="submit" class="btn btn-primary">login</button>
+                    <a href = "{% url 'accounts:signup' %}" class = 'btn btn-primary btn-xs' style="margin-left: 5%">New user</a>
+                </div>
+         </form>
+        </div>
+    </div>
+</body>
+</html>

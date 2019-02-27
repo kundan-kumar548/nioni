@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Home</title>
+    <style>
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="{% url 'home:home' %}" class="navbar-brand"><i class="fas fa-circle-notch"></i>somi</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/admin">admin</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contacts</a></li>
+
+            {% if request.user.is_authenticated %}
+                <li><a href="#">{{ request.user.username }}</a></li>
+                <li><a href="{% url 'accounts:logout' %}">logout</a></li>
+            {% else %}
+                <li><a class="dark-grey-text" href="{% url 'accounts:login' %} }">sign in</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+        <div class="col-md-7" style="margin-left: 26%;margin-top: 18%">
+            <div class="col-md-offset-3 btn btn-link btn-lg">
+                    <a href="#" class="navbar-brand">
+                        <span class="glyphicon glyphicon-flash" aria-hidden="true">
+                        </span>
+                        Go to Feedi
+                    </a>
+
+            </div>
+        </div>
+
+</body>
+</html>
