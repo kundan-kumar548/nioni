@@ -25,11 +25,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_redis',
     'djangosecure',
     'sslserver',
     'accounts',
     'blog',
-    'home'
+    'home',
+    'posts'
 ]
 
 MIDDLEWARE = [
@@ -86,6 +88,19 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+# in memory data structure
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient"
+        },
+        "KEY_PREFIX": "example"
+    }
+}
+
 
 
 # Password validation
